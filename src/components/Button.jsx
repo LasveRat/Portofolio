@@ -15,12 +15,20 @@ import PropTypes from "prop-types";
  * Primary Button
  */
 
-const ButtonPrimary = ({ href, target = "_self", label, icon, classes }) => {
+const ButtonPrimary = ({
+  href,
+  target = "_self",
+  label,
+  icon,
+  classes,
+  download,
+}) => {
   if (href) {
     return (
       <a
         href={href}
         target={target}
+        download={download}
         className={`btn btn-primary ${classes || ""}`}
       >
         {label}
@@ -53,6 +61,7 @@ ButtonPrimary.propTypes = {
   target: PropTypes.string,
   icon: PropTypes.string,
   classes: PropTypes.string,
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 /**
